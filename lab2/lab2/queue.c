@@ -50,7 +50,11 @@ double back(Queue *queue)
   if (queue == NULL) {
     fprintf(stderr, "Queue is NULL\n");
     return 0.0;
-}
+} 
+  if (queue->size == 0) {
+    fprintf(stderr, "Queue is empty\n");
+    return 0.0;
+  }
   return queue->data[queue->size - 1];
 }
 
