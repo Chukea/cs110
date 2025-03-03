@@ -68,3 +68,17 @@ void queue_free(Queue *queue)
   free(queue);
 }
 
+void another_queue_free(Queue **queue) {
+  if (queue == NULL) {
+      fprintf(stderr, "queue is NULL\n");
+      return;
+  }
+  if (*queue == NULL) {
+      fprintf(stderr, "*queue is NULL\n");
+      return;
+  }
+  free((*queue)->data);
+  free(*queue);
+  *queue = NULL; 
+}
+
