@@ -25,7 +25,10 @@ Queue *queue_create(void)
 
 void push(Queue *queue, double element)
 {
-
+  if (queue == NULL) {
+    fprintf(stderr, "Queue is NULL\n");
+    return;
+}
   if (queue->size == queue->capacity)
   {
     int capacity = queue->capacity * 2;
@@ -44,12 +47,19 @@ void push(Queue *queue, double element)
 
 double back(Queue *queue)
 {
+  if (queue == NULL) {
+    fprintf(stderr, "Queue is NULL\n");
+    return 0.0;
+}
   return queue->data[queue->size - 1];
 }
 
 void queue_free(Queue *queue)
 {
-
+  if (queue == NULL) {
+    fprintf(stderr, "Queue is NULL\n");
+    return;
+}
   free(queue->data);
   free(queue);
 }
